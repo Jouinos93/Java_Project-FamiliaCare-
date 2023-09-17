@@ -1,0 +1,499 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+:root {
+  --color-theme: #e75480;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s linear;
+}
+
+.profile-box .sitter{
+
+    height: 250px;
+    width:150px;
+}
+
+::selection {
+    background: var(--color-theme);
+    color: #fff;
+  }
+  
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  section {
+    padding: 3rem 5%;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* * Navbar Styles */ 
+  .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 1000;
+  }
+  
+    .navbar-logo img {
+      width: 110px;
+      height: 110px;
+    }
+    
+    .navbar-nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar-nav li {
+      margin-right: 20px;
+    }
+    
+    .navbar-nav a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+      font-size: large;
+    }
+    
+    .navbar-nav a:hover {
+      color: #d6a8c8;
+    }
+    
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-bar input[type="text"] {
+      padding: 8px;
+      border: none;
+      border-radius: 20px;
+      background-color: #f5f5f5;
+      outline: none;
+    }
+    
+    .search-bar button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  
+  .btn {
+    color: var(--color-theme);
+    background: #fff;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0.7rem 2rem;
+    border: 0.2rem solid #ccc;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .header .nav .btn {
+    margin-right: 1rem;
+  }
+  
+  .btn:hover {
+    border-color: var(--color-theme);
+  }
+  
+  .btn1 {
+    color: #ffffff !important;
+    background: var(--color-theme);
+    border-color: var(--color-theme);
+  }
+  
+  .btn1:hover {
+    background: #ebe1e8;
+  }
+
+
+
+/* Reset some default styles */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling for the page */
+body {
+    margin-top: 150px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+/* 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+} */
+
+
+
+/* Styling for sections with cards
+
+/* .team-section{
+    margin-top: 150px;
+} */
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+p{
+    font-size: large;
+}
+
+/* Styling for sections with cards */
+.team-section, .sitters-section, .location-section, .why-choose-us {
+    background-color: #ffffff;
+    padding: 40px 20px; /* Increased padding for better spacing */
+    margin: 20px 0; /* Added margin for separation between sections */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Style for profile boxes */
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Adjust the width as needed */
+}
+
+.profile-box .icon {
+    font-size: 36px;
+    color: #2d2a30;
+}
+
+.profile-box h3 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.profile-box .sitter {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.profile-box .rating {
+    margin-top: 10px;
+    color: #f1c40f; /* Star color */
+    font-size: 20px;
+}
+
+.profile-box p {
+    color: #888;
+    margin-top: 10px;
+}
+
+
+/* Styling for the map and email form */
+
+
+.location-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#map {
+
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    margin-left: 40%;
+
+}
+
+.email-form {
+    padding-top: 100px;
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+.email-form h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.email-form label {
+   
+    display: block;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.email-form input[type="text"],
+.email-form input[type="email"],
+.email-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.email-form button {
+    background-color: #afa7b8;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.email-form button:hover {
+    background-color: #cecece;
+}
+
+/* Styling for "Why Choose Us" section */
+
+
+.why-choose-us h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.why-choose-us p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.why-choose-us ul {
+    list-style: none;
+    padding: 0;
+}
+
+.why-choose-us ul li {
+    font-size: 25px;
+    color: #333;
+    /* margin-bottom: 10px; */
+}
+/* Optional: Add some icons to the list items */
+.why-choose-us li::before {
+    content: "\f058"; /* You can use FontAwesome icons here */
+    font-family: FontAwesome;
+    margin-right: 10px;
+    color: #2d2a30;
+}
+
+
+
+/* footer style */
+.footer-distributed {
+    background-color:rgb(230, 213, 215);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;
+    margin-top: 80px;
+}
+
+.footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+.footer-distributed .footer-left{
+    width: 30%;
+}
+.footer-distributed .footer-left span{
+    color: #000000;
+}
+.footer-distributed .footer-left .line{
+    color: #000000;
+}
+
+
+.footer-distributed h3 {
+    color: #000000;
+    font: normal 36px 'Cookie', cursive;
+    margin: 0;
+}
+
+.footer-distributed .logo{
+    height: 120px;
+    width: 120px;
+}
+
+/* Footer links */
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+}
+
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Footer Center */
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+
+.footer-distributed .footer-center i {
+    width: 35px;
+    height: 35px;
+    background-color: #c3b5c4;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #000000;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 2;
+
+}
+
+.footer-distributed .footer-center p a {
+    color: #000000;
+    text-decoration: none;
+    ;
+}
+
+/* Footer Right */
+.footer-distributed .footer-right {
+    width: 30%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #c3b5c4;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.footer-distributed .footer-icons a:hover {
+    background-color: #f9dbff;
+}
+
+.footer-links a:hover {
+    color: #3F71EA;
+}
+
+@media (max-width: 880px) {
+    .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+} 
+
+
+
+
+

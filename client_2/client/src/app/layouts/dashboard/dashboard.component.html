@@ -1,0 +1,13 @@
+<div class="container" *ngIf="userData">
+    <div class="header">
+      <app-header [currentUser]="userData"></app-header>
+    </div>
+    <div class="main-container">
+      <div class="side-nav">
+        <app-side-nav></app-side-nav>
+      </div>
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

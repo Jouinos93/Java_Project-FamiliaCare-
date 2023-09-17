@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 600px;
+        width: 90%;
+        text-align: center;
+        margin: 20px auto;
+      }
+
+      .form-label {
+        font-weight: bold;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #000000;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        background: #946385;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-right: 10px;
+      }
+
+      .btn-secondary {
+        background: #ccc;
+        color: #000;
+      }
+
+      .btn:hover {
+        background: #ebe1e8;
+      }
+
+      .tab-pane {
+        padding: 20px;
+      }
+
+      /* CSS for the modal overlay */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+      }
+
+      /* CSS for the modal content */
+      .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body *ngIf="sitter">
+    <header class="navbar">
+      <div class="navbar-logo navbar-fixed-top">
+        <img src="../../assets/images/logo.png" alt="Logo" />
+      </div>
+      <nav class="navbar-nav">
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="/aboutus">About Us</a></li>
+          <li><a href="/policy">Policy</a></li>
+          <li><a href="/registration">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="box">
+        <ul class="nav nav-tabs" id="myTabs" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="step1-tab"
+              data-toggle="tab"
+              href="#step1"
+              role="tab"
+              aria-controls="step1"
+              aria-selected="true"
+              >Step 1</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="step2-tab"
+              data-toggle="tab"
+              href="#step2"
+              role="tab"
+              aria-controls="step2"
+              aria-selected="false"
+              >Step 2</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="step3-tab"
+              data-toggle="tab"
+              href="#step3"
+              role="tab"
+              aria-controls="step3"
+              aria-selected="false"
+              >Step 3</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <!-- Step 1 -->
+          <div
+            class="tab-pane fade show active"
+            id="step1"
+            role="tabpanel"
+            aria-labelledby="step1-tab"
+          >
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="first name"
+                    placeholder="First Name"
+                    name="firstName"
+                    [(ngModel)]="sitter.firstName"
+                    ngModel
+                    required
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="last name"
+                    placeholder="Last Name"
+                    name="lastName"
+                    [(ngModel)]="sitter.lastName"
+                    ngModel
+                    required
+                  />
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Education</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="education"
+                    placeholder="Education"
+                    name="education"
+                    [(ngModel)]="sitter.education"
+                    ngModel
+                    required
+                  />
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="inputAge">Age</label>
+                  <input
+                    placeholder="Age"
+                    type="number"
+                    class="form-control"
+                    id="age"
+                    name="age"
+                    [(ngModel)]="sitter.age"
+                    ngModel
+                    required
+                  />
+                </div>
+              </div>
+
+              <label for="inputActivities" class="form-label">Activities</label>
+
+              <!-- <fieldset> -->
+
+              <fieldset class="d-flex flex-wrap">
+                <div class="form-check" style="width: 25%" *ngFor="let activity of activities">
+                    <ng-container *ngIf="hasActivity(activity); else dontCheck">
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            [(ngModel)]="selectedActivities[activity]"
+                            [name]="'activity-' + activity"
+                            [checked]="true"
+                        />
+                        <label class="form-check-label" [for]="'activity-' + activity">
+                            {{ activity }}
+                        </label>
+                    </ng-container>
+                    <ng-template #dontCheck>
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            [(ngModel)]="selectedActivities[activity]"
+                            [name]="'activity-' + activity"
+                        />
+                        <label class="form-check-label" [for]="'activity-' + activity">
+                            {{ activity }}
+                        </label>
+                    </ng-template>
+                </div>
+                
+                <!-- <div>
+                        <div class="form-check">
+                           
+                            <input type="checkbox" class="form-check-input" id="activity1" name="activity1" ngModel>
+                            <label class="form-check-label" for="activity1">Sports</label>
+                           
+
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="activity2" name="activity2" ngModel>
+                            <label class="form-check-label" for="activity2">Music</label>
+                        </div>
+                        </div>
+
+
+                        <div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="activity3" name="activity3" ngModel>
+                            <label class="form-check-label" for="activity3">Painting</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="activity1" name="activity1" ngModel>
+                            <label class="form-check-label" for="activity1">Dancing</label>
+                        </div>
+                    </div>
+             
+        
+                    <div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="activity1" name="activity1" ngModel>
+                            <label class="form-check-label" for="activity1">Camping</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="activity1" name="activity1" ngModel>
+                            <label class="form-check-label" for="activity1">Cooking</label>
+                        </div>
+
+
+                    </div>
+                    <div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="activity1" name="activity1" ngModel>
+                            <label class="form-check-label" for="activity1">Gardening</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="activity1" name="activity1" ngModel>
+                            <label class="form-check-label" for="activity1">Chatting</label>
+                        </div>
+                    </div> -->
+              </fieldset>
+
+              <div class="form-group">
+                <label for="inputPhone">Phone</label>
+                <input
+                  placeholder="Your Phone number"
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  [(ngModel)]="sitter.phone"
+                  ngModel
+                  required
+                />
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="prevStep()"
+              >
+                Previous
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="tab"
+                href="#step2"
+              >
+                Next
+              </button>
+            </form>
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="tab-pane fade"
+            id="step2"
+            role="tabpanel"
+            aria-labelledby="step2-tab"
+          >
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="inputEmail4">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputEmail4"
+                  name="email"
+                  [(ngModel)]="sitter.email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword4"
+                    name="password"
+                    [(ngModel)]="sitter.password"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputConfirm4">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputConfirm4"
+                    name="confirm"
+                    [(ngModel)]="sitter.confirm"
+                    placeholder="Confirm Password"
+                  />
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">Num</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="num"
+                      [(ngModel)]="sitter.address.num"
+                      id="inputZip"
+                    />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputCity">City</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="city"
+                      [(ngModel)]="sitter.address.city"
+                      id="inputCity"
+                    />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="state"
+                      [(ngModel)]="sitter.address.state"
+                      id="inputCity"
+                    />
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="zipCode"
+                      [(ngModel)]="sitter.address.zipCode"
+                      id="inputZip"
+                    />
+                  </div>
+                  <div class="d-flex justify-content-around p-5">
+                    <div class="mr-2">
+                      <label for="inputAddress">Street</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="inputAddress"
+                        name="street"
+                        [(ngModel)]="sitter.address.street"
+                      />
+                    </div>
+                    <div class="ml-2">
+                      <label for="inputAddress">Country</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="inputAddress"
+                        name="country"
+                        [(ngModel)]="sitter.address.country"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="form-group">
+                <label for="pricePerHour" class="form-label"
+                  >Price Per Hour</label
+                >
+                <select
+                  class="form-select"
+                  id="pricePerHour"
+                  name="pricePerHour"
+                  [(ngModel)]="sitter.price"
+                  ngModel
+                  required
+                >
+                  <option value="5">5 Dt</option>
+                  <option value="10">10 Dt</option>
+                  <option value="20">20 Dt</option>
+                </select>
+              </div>
+
+              <button type="button" class="btn btn-secondary">Previous</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="tab"
+                href="#step2"
+              >
+                Next
+              </button>
+            </form>
+          </div>
+
+          <!-- Step 3 -->
+
+          <div
+            class="tab-pane fade"
+            id="step3"
+            role="tabpanel"
+            aria-labelledby="step3-tab"
+          >
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                  placeholder="Please write a brief description about yourself"
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  [(ngModel)]="sitter.description"
+                  ngModel
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group uploading">
+                <label for="image" class="form-label">Upload Image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                  [(ngModel)]="sitter.image"
+                />
+              </div>
+              <div class="form-group uploading">
+                <label for="cv" class="form-label">Upload CV</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="cv"
+                  name="cv"
+                  accept=".pdf, .doc, .docx"
+                  [(ngModel)]="sitter.cv"
+                />
+              </div>
+              <div class="buttons">
+                <a href="" class="btn btn1">Cancel</a>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

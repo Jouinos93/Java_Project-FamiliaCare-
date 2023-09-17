@@ -1,0 +1,92 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Actif</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.address.street }}, {{ user.address.city }}, {{ user.address.country }}</td>
+        <td>
+          <!-- <button (click)="toggleButton(user)">
+            <div *ngIf="user.isActif;then contenu_bon else contenu_pas_bon">Le contenu saisi ici sera ignoré.</div>
+            <ng-template #contenu_bon>Actif</ng-template>
+            <ng-template #contenu_pas_bon>Inactif</ng-template>
+          </button> -->
+          <!-- <div class="toggle-container" (click)="toggleUserStatus(user)">
+            <div class="toggle-switch" [class.active]="user.isActif"></div>
+          </div>
+          <span class="toggle-text">{{ user.isActif ? 'Active' : 'Inactive' }}</span> -->
+
+          <!-- <button type="button" class="btn btn-sm btn-secondary btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+            <div class="handle"></div>
+          </button> -->
+
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="user.isActif" (change)="toggleUserStatus(user)">
+            <span class="slider round" [ngClass]="{'active': user.isActif}"></span>
+          </label>
+
+
+        </td>
+        <td>
+          <button class="btn btn-primary m-1" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal' + user.id">Edit</button>
+          <button class="btn btn-danger m-1">Delete</button>
+        </td>
+        
+            <!-- Modal -->
+    <!-- <div class="modal fade" [id]="'exampleModal' + adr.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <div class="modal fade" id="exampleModal{{user.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">User Update</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="num">First Name:</label>
+                  <input type="text" name="firstName" class="form-control" [(ngModel)]="user.firstName">
+                </div>
+                <div>
+                  <label for="street">Last Name:</label>
+                  <input type="text" name="lastName" class="form-control" [(ngModel)]="user.lastName">
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label for="city">Email:</label>
+                  <input type="text" name="email" class="form-control" [(ngModel)]="user.email">
+                </div>
+                <div>
+                  <label for="state">Phone:</label>
+                  <input type="text" id="state" name="phone" class="form-control" [(ngModel)]="user.phone">
+                </div>
+              </div>
+          
+              <div class="flex items-center justify-between">
+                <button class="btn btn-primary" type="button" (click)="updateUser(user)">Update</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

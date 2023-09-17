@@ -1,0 +1,51 @@
+<!-- acceuil.component.html -->
+<app-navbar></app-navbar>
+
+<div class="container mt-5"  *ngIf="loggedInUser">
+  <div class="">
+    <img [src]="loggedInUser.image" [alt]="loggedInUser.firstName" class="user-avatar rounded-circle mr-2"/>
+    <h1 class="username">{{ loggedInUser.firstName }} {{ loggedInUser.lastName }}</h1>
+  </div>
+</div>
+
+<!-- blog section -->
+<section class="blog_section layout_padding">
+  <div class="container">
+    <div class="row"  *ngIf="sitters">
+      
+      <!-- test -->
+      <!-- <div class="card" *ngFor="let sitter of sitters">
+        <div class="card-header">{{sitter.firstName}}</div>
+        <div class="card-body">{{sitter.lastName}}</div>
+        <div class="card-footer"><app-add-review></app-add-review></div>
+      </div> -->
+      <!--  -->
+      
+      <ng-container *ngFor="let sitter of sitters; let i = index">
+        <div class="col-md-6 mt-4">
+          <div class="card example-card">
+            <img mat-card-image [src]="sitter.image" alt="Sitter Image" class="card-img-top" width="500" height="400"/>
+            <div class="card-body">
+              <h5 class="card-title">{{ sitter.firstName }} {{ sitter.lastName }}</h5>
+              <p class="card-text desc">{{ sitter.description }}</p>
+              <p class="card-text">
+                <small class="text-muted">Age: {{ sitter.age }}</small>
+              </p>
+              <div class="card-footer bg-light">
+                <app-add-review [user]="loggedInUser" [sitter] = "sitter"></app-add-review>
+                <a [routerLink]="'/oneGiver/' + sitter.id">
+                  <button class="btn-primary">
+                    Show More
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Close the row div if it's the end of a pair -->
+        <div *ngIf="(i + 1) % 2 === 0" class="col-md-12 mt-4"></div>
+      </ng-container>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

@@ -1,0 +1,110 @@
+<body>
+
+<div class="container" *ngIf="loggedInUser">
+  <!-- Step 1: User Information -->
+  <form class="bg-transparent shadow p-4 rounded">
+    <h2 class="mb-4 text-2xl font-semibold text-center">
+      Profile Update
+    </h2>
+    <div class="raw">
+    <div class="mb-4">
+      <label class="form-label" for="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        class="form-control"
+        [(ngModel)]="loggedInUser.firstName"
+      />
+    </div>
+    <div class="mb-4">
+      <label class="form-label" for="lastName">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        class="form-control"
+        [(ngModel)]="loggedInUser.lastName"
+      />
+    </div>
+  </div>
+
+
+    <!-- Step 2: Address Information -->
+    <div class="raw">
+      <div class="mb-4">
+        <label class="form-label" for="num">Number</label>
+        <input
+          type="number"
+          id="num"
+          name="num"
+          class="form-control"
+          [(ngModel)]="loggedInUser.address.num"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="street">Street</label>
+        <input
+          type="text"
+          id="street"
+          name="street"
+          class="form-control"
+          [(ngModel)]="loggedInUser.address.street"
+        />
+      </div>
+    </div>
+
+    <div class="raw">
+      <div class="mb-4">
+        <label class="form-label" for="city">City</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          class="form-control"
+          [(ngModel)]="loggedInUser.address.city"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="country">Country</label>
+        <input
+          type="text"
+          id="country"
+          name="country"
+          class="form-control"
+          [(ngModel)]="loggedInUser.address.country"
+        />
+      </div>
+    </div>
+    <div class="raw">
+      <div class="mb-4">
+        <label class="form-label" for="state">State</label>
+        <input
+          type="text"
+          id="state"
+          name="state"
+          class="form-control"
+          [(ngModel)]="loggedInUser.address.state"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="zipCode">Zip Code</label>
+        <input
+          type="text"
+          id="zipCode"
+          name="zipCode"
+          class="form-control"
+          [(ngModel)]="loggedInUser.address.zipCode"
+        />
+      </div>
+    </div>
+    
+    <div class="d-flex justify-content-center ">
+      <button class="btn btn-primary" type="submit" (click)="saveUserInfo(loggedInUser)">Update</button>
+      <a href="/listOfGivers" class="btn2"   >Cancel </a>
+    </div>
+
+  </form>
+
+</div>
+</body>

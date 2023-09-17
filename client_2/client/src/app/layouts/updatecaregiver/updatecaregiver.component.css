@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+
+
+body {
+  background-image: url('../../../assets/images/help.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.navbar {
+
+  top: 0;
+  left: 0;
+  width: 100%;  position: fixed;
+  height: 120px;
+  /* background-color: rgba(255, 255, 255, 0.3); */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  z-index: 1000;
+  
+  
+}
+
+
+.navbar-logo img {
+  width: 110px;
+  height: 110px;
+}
+.navbar-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav li {
+  margin-right: 20px;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.3s;
+  font-size: large;
+}
+
+.navbar-nav a:hover {
+  color: #d6a8c8;
+}
+
+
+/* Style the transparent container for the form */
+/* .container {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px; 
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+
+  /* margin: auto;  */
+  /* margin-top: 300px;  */
+  /* margin-bottom: 100px;  */
+
+.container{
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  height: 600px;
+ 
+}
+
+
+/* Style the form elements */
+.form-label {
+  font-weight: bold;
+  padding: 10px;
+}
+.form-check{
+  display: flex;
+  flex: 1;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.mb-3 {
+  padding-right: 20px;
+}
+.form-group-uploading{
+  display: flex;
+  align-items: baseline;
+  font-weight: bold;
+  padding: 10px;
+  padding-bottom: 10px;
+
+}
+
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #000 ;
+  background-color: rgba(255, 255, 255, 0.1);;
+  border-radius: 5px;
+
+
+}
+
+
+
+fieldset{
+
+  display: flex;
+  /* flex: 1; */
+  /* align-items: center; */
+
+  width: 100%;
+ 
+  border: 1px solid;
+  border-radius: 5px;
+
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+
+
+}
+/* .form-check-input{
+  /* padding-left: 10px; */
+ */
+
+
+
+/* Style the buttons */
+.btn {
+  display: inline-block;
+  background: #946385;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-right: 10px;
+
+  
+}
+
+.btn-secondary {
+  background: #ccc;
+  color: #000;
+}
+
+.btn:hover {
+  background: #ebe1e8;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .container {
+      width: 95%; /* Adjust the width for responsiveness */
+  }
+}
+
+@media (max-width: 880px) {
+  .container {
+      width: 100%; /* Adjust the width for responsiveness */
+  }
+  
+  /* Add more responsive styles for smaller screens here */
+}
+
+@media (max-width: 480px) {
+  /* Add specific styles for even smaller screens here */
+}

@@ -1,0 +1,27 @@
+a{
+  text-decoration: none;
+  color: #ffff !important;
+}
+.nav-items {
+    padding-top: 40px;
+    .nav-item {
+      padding: 25px 50px;
+      cursor: pointer;
+      @media only screen and (max-width: 1300px) {
+        padding: 25px 40px;
+      }
+      &:hover {
+        background-color: rgb(1, 38, 69);
+      }
+      fa-icon {
+        margin-right: 18px;
+        font-size: 20px;
+      }
+      span {
+        display: inline;
+        @media only screen and (max-width: 1300px) {
+          display: none;
+        }
+      }
+    }
+  }

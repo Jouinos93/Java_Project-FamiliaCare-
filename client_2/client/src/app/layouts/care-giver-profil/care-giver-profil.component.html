@@ -1,0 +1,137 @@
+<app-navbar></app-navbar>
+
+<div class="container" *ngIf="sitterIn">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150" /> -->
+            
+              <img [src]="sitterIn.image" class="image" width="150" height="200"/>
+              
+              <div class="mt-3">
+                <h4 class="text-primary">{{ sitterIn.firstName }} {{ sitterIn.lastName }}</h4>
+                <!-- <p class="text-muted font-size-sm">{{ sitterIn.address.num }} {{ sitterIn.address.street }}, {{ sitterIn.address.city }} {{ sitterIn.address.zipCode }}</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ sitterIn.firstName }} {{ sitterIn.lastName }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Age</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+              {{sitterIn.age}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Education</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+            {{sitterIn.education}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ sitterIn.email }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ sitterIn.phone }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ sitterIn.address.num }}, {{ sitterIn.address.street }}, {{ sitterIn.address.country }}, {{ sitterIn.address.state }}, {{ sitterIn.address.zipCode }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Activities</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <ng-container *ngFor="let activity of sitterIn.activities">
+                    {{ activity }} 
+                </ng-container>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Description</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ sitterIn.description }}
+              </div>
+            </div> 
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Price per hour</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ sitterIn.price }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-12">
+                <a href="/update">
+                  <button class="btn btn-outline-primary">
+                   Update Profile
+                  </button>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <h5 class="text-primary">Reviews</h5>
+      <div class="accordion" id="accordionBasic">
+        <div class="accordion-item" *ngFor="let review of sitterIn.reviewList">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <span class="text-secondary">Posted By</span> {{ review.user.firstName }} {{ review.user.lastName }}
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionBasic">
+            <div class="accordion-body">
+              <strong class="text-primary">Rate: {{ review.rate }}</strong><br>
+              <strong class="text-primary">Content:</strong>
+              <p>{{ review.content }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

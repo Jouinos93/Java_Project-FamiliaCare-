@@ -1,0 +1,50 @@
+<header class="navbar">
+  <div class="navbar-logo navbar-fixed-top">
+    <img src="../../assets/images/logo.png" alt="Logo" />
+  </div>
+  <nav class="navbar-nav">
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="/aboutus">About Us</a></li>
+      <li><a href="/policy">Policy</a></li>
+      <li><a href="/registration">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- <div class="video-background">
+    <video autoplay loop muted (ended)="resetVideo()" #video>
+      <source [src]="videoSource" type="video/mp4" />
+    </video>
+  </div> -->
+
+<div class="background-image">
+  <img src="../../../assets/images/searching.jpeg" alt="Background Image" />
+</div>
+
+<div class="form-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="user.email" required />
+    </div>
+    <div>
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="user.password"
+        required
+      />
+    </div>
+    <div >
+    <button type="submit">Log In</button>
+    <a href="registration/asSeeker" > Don't have an account?</a>
+  </div > 
+</form>
+<br>
+<div class="boton">
+
+  </div>
+</div>

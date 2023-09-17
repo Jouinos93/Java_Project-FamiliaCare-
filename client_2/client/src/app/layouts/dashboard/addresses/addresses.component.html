@@ -1,0 +1,83 @@
+<div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Building number</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Country</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adr of addresses">
+          <td>{{ adr.num }}</td>
+          <td>{{ adr.street }}</td>
+          <td>{{ adr.city }}</td>
+          <td>{{ adr.state }}</td>
+          <td>{{ adr.country }}</td>
+          <td>
+            <button class="btn btn-primary m-1" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal' + adr.id">Edit</button>
+            <button class="btn btn-danger m-1" (click)='deleteAdr(adr.id)'>Delete</button>
+          </td>
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" [id]="'exampleModal' + adr.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <div class="modal fade" id="exampleModal{{adr.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Address Update</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="num">Number:</label>
+                  <input type="number" id="num" name="num" class="form-control" [(ngModel)]="adr.num">
+                </div>
+                <div>
+                  <label for="street">Street:</label>
+                  <input type="text" id="street" name="street" class="form-control" [(ngModel)]="adr.street">
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label for="city">City:</label>
+                  <input type="text" id="city" name="city" class="form-control" [(ngModel)]="adr.city">
+                </div>
+                <div>
+                  <label for="state">State:</label>
+                  <input type="text" id="state" name="state" class="form-control" [(ngModel)]="adr.state">
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label for="zipCode">Zip Code:</label>
+                  <input type="text" id="zipCode" name="zipCode" class="form-control" [(ngModel)]="adr.zipCode">
+                </div>
+                <div>
+                  <label for="country">Country:</label>
+                  <input type="text" id="country" name="country" class="form-control" [(ngModel)]="adr.country">
+                </div>
+              </div>
+          
+              <div class="flex items-center justify-between">
+                <button class="btn btn-primary" type="button" (click)="updateAddress(adr)">Update</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </tr>
+</tbody>
+</table>
+
+  </div>

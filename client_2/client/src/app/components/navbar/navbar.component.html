@@ -1,0 +1,33 @@
+<header class="navbar">
+  <div class="navbar-logo">
+    <img src="../../../assets/images/logo.png" alt="Logo" />
+  </div>
+  <nav class="navbar-nav">
+    <ul>
+      <li></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li>
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </li>
+      <li>
+        <button
+          mat-icon-button
+          aria-label="Example icon button with a vertical three dot icon"
+          [matMenuTriggerFor]="menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="goToSettings()">Settings</button>
+          <!-- <button mat-menu-item (click)="goToHomepage()">Logout</button> -->
+          <button mat-menu-item>Privacy</button>
+          <app-logout></app-logout>
+        </mat-menu>
+      </li>
+    </ul>
+  </nav>
+</header>

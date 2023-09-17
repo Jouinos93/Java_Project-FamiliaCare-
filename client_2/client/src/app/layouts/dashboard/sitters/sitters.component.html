@@ -1,0 +1,70 @@
+<div>
+  <h4>Waiting for validation</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Sitter name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Actif</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sitter of sitters">
+          <ng-container *ngIf="!sitter.isActif">
+          <td>{{ sitter.firstName }} {{ sitter.lastName }}</td>
+          <td>{{ sitter.email }}</td>
+          <td>{{ sitter.phone }}</td>
+          <td>{{ sitter.address.street }}, {{ sitter.address.city }}, {{ sitter.address.country }}</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="sitter.isActif" (change)="toggleButton(sitter)">
+              <span class="slider round" [ngClass]="{'active': sitter.isActif}"></span>
+            </label>
+          <td>
+            <button class="btn btn-primary m-1">Edit</button>
+            <button class="btn btn-danger m-1">Delete</button>
+          </td>
+        </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div>
+    <h4>Active Care Givers</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Sitter name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Actif</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sitter of sitters">
+          <ng-container *ngIf="sitter.isActif">
+          <td>{{ sitter.firstName }} {{ sitter.lastName }}</td>
+          <td>{{ sitter.email }}</td>
+          <td>{{ sitter.phone }}</td>
+          <td>{{ sitter.address.street }}, {{ sitter.address.city }}, {{ sitter.address.country }}</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="sitter.isActif" (change)="toggleButton(sitter)">
+              <span class="slider round" [ngClass]="{'active': sitter.isActif}"></span>
+            </label>
+          <td>
+            <button class="btn btn-primary m-1">Edit</button>
+            <button class="btn btn-danger m-1">Delete</button>
+          </td>
+        </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>

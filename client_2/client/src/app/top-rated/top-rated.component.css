@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+
+
+
+@import "~bootstrap/dist/css/bootstrap.css";
+:root {
+    --color-theme: #e75480;
+  }
+
+  * {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.3s linear;
+
+  }
+  .navbar-logo img {
+    width: 110px;
+    height: 110px;
+  }
+  .navbar-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-nav li {
+    margin-right: 20px;
+   
+  }
+  a{
+    text-decoration: none;
+  }
+
+  h5{
+    color: green;
+  }
+
+
+
+/* footer style */
+.footer-distributed {
+  background-color:rgb(230, 213, 215);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+  padding: 50px 50px 60px 50px;
+  margin-top: 80px;
+}
+
+.footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Footer left */
+.footer-distributed .footer-left{
+  width: 30%;
+}
+.footer-distributed .footer-left span{
+  color: #000000;
+}
+.footer-distributed .footer-left .line{
+  color: #000000;
+}
+
+
+.footer-distributed h3 {
+  color: #000000;
+  font: normal 36px 'Cookie', cursive;
+  margin: 0;
+}
+
+.footer-distributed .logo{
+  height: 120px;
+  width: 120px;
+}
+
+/* Footer links */
+.footer-distributed .footer-links {
+  color: #ffffff;
+  margin: 20px 0 12px;
+}
+
+
+.footer-distributed .footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+  color: #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Footer Center */
+.footer-distributed .footer-center {
+  width: 35%;
+}
+
+
+.footer-distributed .footer-center i {
+  width: 35px;
+  height: 35px;
+  background-color: #c3b5c4;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  vertical-align: middle;
+}
+
+
+.footer-distributed .footer-center p {
+  display: inline-block;
+  color: #000000;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 2;
+
+}
+
+.footer-distributed .footer-center p a {
+  color: #000000;
+  text-decoration: none;
+  ;
+}
+
+/* Footer Right */
+.footer-distributed .footer-right {
+  width: 30%;
+}
+
+.footer-distributed .footer-company-about {
+  line-height: 20px;
+  color: #000000;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+  display: block;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+  margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #c3b5c4;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+.footer-distributed .footer-icons a:hover {
+  background-color: #f9dbff;
+}
+
+.footer-links a:hover {
+  color: #3F71EA;
+}
+
+@media (max-width: 880px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+      display: block;
+      width: 100%;
+      margin-bottom: 40px;
+      text-align: center;
+  }
+  .footer-distributed .footer-center i {
+      margin-left: 0;
+  }
+} 
+
+
+
+
+
+
+
+
+
+
+
+/* Add additional CSS for responsiveness as needed */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+

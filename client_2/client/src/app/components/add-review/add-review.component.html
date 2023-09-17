@@ -1,0 +1,12 @@
+<form>
+    <app-rating [(ngModel)]="review.rate" name="rate" (ratingChange)="onRatingChange($event)"></app-rating>
+    <input type="text" placeholder="Leave a comment" name ="content" [(ngModel)]="review.content">
+    <br>
+   
+        <div>
+            <button class="btn btn-primary" (click)="onSubmit()">submit</button><br>
+
+</div>
+
+
+</form>

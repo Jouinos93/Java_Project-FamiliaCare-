@@ -1,0 +1,75 @@
+<div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Sitter</th>
+          <th>Description</th>
+          <th>Start At</th>
+          <th>End At</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let action of actions">
+          <td>{{ action.user }}</td>
+          <td>{{ action.sitter }}</td>
+          <td>{{ action.description }}</td>
+          <td>{{ action.startDate | date: "YYYY-MM-dd hh:mm:ss" }}</td>
+          <td>{{ action.endDate | date: "dd/MM/YYYY" }}</td>
+          <td>{{ action.status}}</td>
+          <td>
+            <button class="btn btn-primary m-1" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal' + action.id">Edit</button>
+            <button class="btn btn-danger m-1">Delete</button>
+          </td>
+
+
+                      <!-- Modal -->
+            <!-- <div class="modal fade" [id]="'exampleModal' + adr.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+            <div class="modal fade" id="exampleModal{{action.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Action Update</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+                    <form>
+                      <div class="grid grid-cols-2 gap-4">
+                        <div>
+                          <label for="num">Description:</label>
+                          <input type="text" name="description" class="form-control" [(ngModel)]="action.description">
+                        </div>
+                        <div>
+                          <label for="street">Last Name:</label>
+                          <input type="date" name="startDate" class="form-control" [(ngModel)]="action.startDate">
+                        </div>
+                      </div>
+                      <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div>
+                          <label for="city">End Date:</label>
+                          <input type="date" name="endDate" class="form-control" [(ngModel)]="action.endDate">
+                        </div>
+                        <div>
+                          <label for="state">Status:</label>
+                          <input type="text" id="state" name="phone" class="form-control" [(ngModel)]="action.status">
+                        </div>
+                      </div>
+                  
+                      <div class="flex items-center justify-between">
+                        <button class="btn btn-primary" type="button" (click)="updateAction(action)">Update</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+        </tr>
+      </tbody>
+    </table>
+</div>

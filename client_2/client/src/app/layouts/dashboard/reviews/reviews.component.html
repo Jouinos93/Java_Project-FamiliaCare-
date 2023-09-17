@@ -1,0 +1,25 @@
+<div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Sitter</th>
+          <th>Review</th>
+          <th>Rate</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of reviews">
+          <td><ng-container *ngIf="review.user">{{ review.user.firstName }} {{ review.user.lastName }}</ng-container></td>
+          <td><ng-container *ngIf="review.sitter">{{ review.sitter.firstName }} {{ review.sitter.lastName }}</ng-container></td>
+          <td>{{ review.content }}</td>
+          <td>{{ review.rate }}</td>
+          <td>
+            <button class="btn btn-primary m-1">Edit</button>
+            <button class="btn btn-danger m-1">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

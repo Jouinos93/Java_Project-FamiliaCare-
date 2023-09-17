@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Add your custom CSS -->
+    <style>
+      body {
+        background-image: url("../../../assets/images/help.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 600px;
+        width: 90%;
+        text-align: center;
+        margin: 20px auto;
+      }
+
+      /* Style for the form inputs to make them visually appealing */
+      .form-control {
+        background: rgba(173, 216, 230, 0.5); /* Light blue background color */
+        border: 1px solid rgba(0, 0, 255, 0.3); /* Blue border */
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <!-- Step 1: User Information -->
+      <form class="bg-transparent shadow p-4 rounded" *ngIf="currentStep === 1">
+        <h2 class="mb-4 text-2xl font-semibold text-center">
+          User Registration - Step 1
+        </h2>
+        <div class="mb-4">
+          <label class="form-label" for="image">Photo</label>
+          <input type="file" id="image" name="image" class="form-control" [(ngModel)]="user.image"/>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="user.firstName"/>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" class="form-control"  [(ngModel)]="user.lastName"/>
+        </div>
+        <!-- Next Button for Step 2 -->
+        <div class="d-flex justify-content-end mt-4">
+          <button class="btn btn-primary" type="button" (click)="nextStep()">Next</button>
+        </div>
+      </form>
+    
+      <!-- Step 2: Address Information -->
+      <form class="bg-transparent shadow p-4 rounded" *ngIf="currentStep === 2">
+        <h2 class="mb-4 text-2xl font-semibold text-center">
+          User Registration - Step 2
+        </h2>
+        <div class="mb-4">
+          <label class="form-label" for="num">Number:</label>
+          <input type="number" id="num" name="num" class="form-control"  [(ngModel)]="user.address.num"/>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="street">Street:</label>
+          <input type="text" id="street" name="street" class="form-control" [(ngModel)]="user.address.street"/>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="city">City:</label>
+          <input type="text" id="city" name="city" class="form-control" [(ngModel)]="user.address.city"/>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="city">Country:</label>
+          <input type="text" id="country" name="country" class="form-control" [(ngModel)]="user.address.country" />
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="city">State:</label>
+          <input type="text" id="country" name="country" class="form-control" [(ngModel)]="user.address.state" />
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="city">Zip Code:</label>
+          <input type="text" id="zipCode" name="zipCode" class="form-control" [(ngModel)]="user.address.zipCode" />
+        </div>
+        <!-- Next and Previous Buttons for Step 2 -->
+        <div class="d-flex justify-content-between mt-4">
+          <button class="btn btn-primary" type="button" (click)="prevStep()">Previous</button>
+          <button class="btn btn-primary" type="button" (click)="nextStep()">Next</button>
+        </div>
+      </form>
+    
+      <!-- Step 3: Additional Information -->
+      <form class="bg-transparent shadow p-4 rounded" *ngIf="currentStep === 3">
+        <h2 class="mb-4 text-2xl font-semibold text-center">
+          User Registration - Step 3
+        </h2>
+        <div class="mb-4">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" />
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" class="form-control" [(ngModel)]="user.phone"/>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="password">Password:</label>
+          <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" />
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" [(ngModel)]="user.confirm"/>
+        </div>
+        <!-- Previous Button for Step 3 -->
+        <div class="d-flex justify-content-between mt-4">
+          <button class="btn btn-primary" type="button" (click)="prevStep()">Previous</button>
+          <button class="btn btn-primary" type="submit" (click)="registerUser()">Register</button>
+        </div>
+      </form>
+  
+    </div>
+    
+    <!-- Add Bootstrap JS and Popper.js scripts here if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include your standalone JavaScript file -->
+    <!-- <script src="registration.js"></script> -->
+  </body>
+</html>

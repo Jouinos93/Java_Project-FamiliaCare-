@@ -1,0 +1,61 @@
+<header class="navbar">
+    <div class="navbar-logo">
+      <img src="../../../assets/images/logo.png" alt="Logo" />
+    </div>
+    <nav class="navbar-nav">
+      <ul>
+        <li></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/aboutus">About Us</a></li>
+        <li><a href="/policy">Policy</a></li>
+
+    
+        <li>
+          <button
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+            [matMenuTriggerFor]="menu"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            
+          
+            <app-logout></app-logout>
+          </mat-menu>
+        </li>
+      </ul>
+    </nav>
+  </header>
+<body>
+    <div class="container">
+
+    <h1>Service Request Form</h1>
+    <form (ngSubmit)="onSubmit()">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required [(ngModel)]="startDate">
+        <input type="time" name="startTime" id="" [(ngModel)]="startTime">
+        <br><br>
+        
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required [(ngModel)]="endDate">
+        <input type="time" name="endTime" id="" [(ngModel)]="endTime">
+        <br><br>
+    
+        <label for="description">Description of Service:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required [(ngModel)]="service.description"></textarea><br><br>
+        
+        <button class="btn" type="submit">Submit</button>
+    </form>
+    <div>
+
+        <p>If you want to pay directly from here, press the link <a href="https://konnect.network/gateway/me/64fa1fe1db8e4d05966152ea">below</a></p>
+    </div>
+</div>
+</body>
+
+
+
+
+
+

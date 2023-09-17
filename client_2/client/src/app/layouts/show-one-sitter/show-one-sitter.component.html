@@ -1,0 +1,42 @@
+
+
+
+<header class="navbar">
+  <div class="navbar-logo">
+    <img src="../../assets/images/logo.png" alt="Logo">
+  </div>
+  <nav class="navbar-nav">
+    <ul>
+      <li><a href="">Home</a></li>
+   
+      <li><a href="/topGiver">Top CareGives</a></li>
+   
+     
+    </ul>
+  </nav>
+</header>
+
+
+<ng-container >
+    <div class="col-md-6 mx-auto" >
+      <div class="card example-card">
+        <img mat-card-image [src]="sitter.image" alt="Sitter Image" class="card-img-top" width="500" height="400"/>
+        <div class="card-body">
+          <h1 class="card-title">{{ sitter.firstName }} {{ sitter.lastName }}</h1>
+          <p class="card-text desc"> I'am{{ sitter.age }} years old, I have a {{ sitter.education }} degree,{{ sitter.description }}. Am from {{ sitter.address.city}} and I love {{ sitter.activities }}.</p>
+          <p class="card-text desc"> </p>
+           <p>is my phone number:{{ sitter.phone }} .</p>
+           <p>my email {{ sitter.email }}.</p>
+          <p> I can work with {{ sitter.price}} per hour.</p>
+      
+         
+         
+    
+            
+           
+              <button class="btn-primary"><a href="/choose-sitter">Choose {{sitter.firstName}}</a></button>  
+          
+        </div>
+      </div>
+    </div>
+</ng-container>

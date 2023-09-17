@@ -1,0 +1,86 @@
+/* styles.css */
+
+/* Style for the container */
+.container {
+  padding-top: 115px;
+  background-color: #f8f9fa;
+}
+
+/* Style for the navbar */
+.navbar {
+  background-color: #f8f9fa; /* Dark background color */
+}
+
+/* Style for the user avatar */
+.user-avatar {
+  width: 200px; /* Adjust the size as needed */
+  height: 200px;
+  border-radius: 50%;
+}
+
+/* Style for the blog section */
+.blog_section {
+  background-color: #f8f9fa; /* Light background color */
+  padding: 30px 0;
+}
+
+/* Style for the sitter cards using Bootstrap classes */
+.card {
+  border: none; /* Remove card border */
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.03); /* Add a slight scale on hover for a 3D effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the sitter's description */
+.desc {
+  max-width: 100%; /* Adjust the maximum width as needed */
+}
+
+/* Style for the card title */
+.card-title {
+  font-size: 1.25rem; /* Adjust the font size as needed */
+  color: #333;
+}
+
+/* Style for the card text */
+.card-text {
+  color: #666;
+}
+
+/* Style for the small text (e.g., age) */
+.small {
+  color: #999;
+}
+
+/* Style for the footer (if needed) */
+/* Add your footer styles here */
+
+/* Add any additional custom CSS styles as needed */
+.username{
+ padding-top: 5%;
+ color: rgb(94, 67, 67);
+}
+.card-title{
+  color: rgb(94, 67, 67);
+}
+button.btn-primary {
+  margin-top: 20px;
+  background-color: #c29a9a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 25%;
+  margin-right: 10px;
+}
+
+button.btn-primary:hover {
+  background-color: #eccccc;
+}

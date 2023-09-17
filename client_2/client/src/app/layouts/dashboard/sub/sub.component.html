@@ -1,0 +1,71 @@
+<div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Type</th>
+          <th>Start At</th>
+          <th>End At</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>{{ user.subscription.subscriptionType }}</td>
+          <td>{{ user.subscription.startDate | date: 'dd/MM/YYYY'}}</td>
+          <td>{{ user.subscription.endDate | date: 'dd/MM/YYYY'}}</td>
+          <td>{{ user.subscription.status}}</td>
+          <td>
+            <button class="btn btn-primary m-1">Edit</button>
+            <button class="btn btn-danger m-1">Delete</button>
+          </td>
+
+                        <!-- Modal -->
+    <!-- <div class="modal fade" [id]="'exampleModal' + adr.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <div class="modal fade" id="exampleModal{{user.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">User Update</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="num">First Name:</label>
+                  <input type="text" name="firstName" class="form-control" [(ngModel)]="user.firstName">
+                </div>
+                <div>
+                  <label for="street">Last Name:</label>
+                  <input type="text" name="lastName" class="form-control" [(ngModel)]="user.lastName">
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label for="city">Email:</label>
+                  <input type="text" name="email" class="form-control" [(ngModel)]="user.email">
+                </div>
+                <div>
+                  <label for="state">Phone:</label>
+                  <input type="text" id="state" name="phone" class="form-control" [(ngModel)]="user.phone">
+                </div>
+              </div>
+          
+              <div class="flex items-center justify-between">
+                <button class="btn btn-primary" type="button" (click)="updateUser(user)">Update</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        </tr>
+      </tbody>
+    </table>
+</div>
